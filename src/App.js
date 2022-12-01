@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Switch } from "react-router-dom
 import React from "react";
 import TestPage1 from "./pages/TestPage1";
 import TestPage2 from "./pages/TestPage2";
-import HomePage  from "./pages/HomPage";
+import HomePage  from "./pages/HomePage";
 
 const App = () => {
     return(

@@ -5,12 +5,20 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { BrowserRouter } from "react-router-dom";
 import { RenderAfterNavermapsLoaded } from "react-naver-maps";
+import { Provider } from "react-redux";
+import {legacy_createStore} from "redux";
+import rootReducer from "./modules";
+import { composeWithDevTools } from "redux-devtools-extension";
+
+const store = legacy_createStore(rootReducer, composeWithDevTools());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <RenderAfterNavermapsLoaded ncpClientId={"n4rdn701ap"}>
-      <App />
-    </RenderAfterNavermapsLoaded>
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <RenderAfterNavermapsLoaded ncpClientId={"n4rdn701ap"}>
+        <App />
+      </RenderAfterNavermapsLoaded>
+    </BrowserRouter>
+  </Provider>
 );
