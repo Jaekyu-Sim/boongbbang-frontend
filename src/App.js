@@ -1,10 +1,60 @@
 import { BrowserRouter as Router, Routes, Route, Switch } from "react-router-dom";
-import React from "react";
-import TestPage1 from "./pages/TestPage1";
-import TestPage2 from "./pages/TestPage2";
+import React, { useEffect, useState } from "react";
 import HomePage  from "./pages/HomePage";
+import { useDispatch } from "react-redux";
+import { setCurrentPosition } from "./store/naverMap/action";
 
 const App = () => {
+
+    const [lat, setLat] = useState();
+    const [lng, setLng] = useState();
+
+    //current position from gps by using redux
+    function getCurrentLoc() {
+        const position = getLocation();
+        position.then((value) => {
+            console.log(value);
+            setLat(value.latitude);
+            setLng(value.longitude);
+        })
+    }
+    function  getLocation() {
+        return new Promise((resolve, reject) => {
+            if (navigator.geolocation) {
+                const now = new Date();
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        resolve({
+                            err: 0,
+                            time: now.toLocaleTimeString(),
+                            latitude: position.coords.latitude,
+                            longitude: position.coords.longitude,
+                        });
+                    },
+                    (err) => {
+                        resolve({
+                            err: -1,
+                            latitude: -1,
+                            longitude: -1,
+                        });
+                    },
+                    { enableHighAccuracy: true, maximumAge: 2000, timeout: 5000 }
+                );
+            } else {
+                reject({ error: -2, latitude: -1, longitude: -1 });
+            }
+        });
+    }
+    getCurrentLoc();
+    
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        console.log("lat, lng : ", lat, lng)
+    }, [lat, lng])
+    dispatch(setCurrentPosition({lat, lng}))
+
+
     return(
         <>
             {/* 
@@ -17,8 +67,6 @@ const App = () => {
             */}
             <Routes>
                 <Route path="/" element = {<HomePage></HomePage>}></Route>
-                <Route path="/TestPage1/" element = {<TestPage1></TestPage1>}></Route>
-                <Route path="/TestPage2/" element = {<TestPage2></TestPage2>}></Route>
             </Routes>
         </>
     )
