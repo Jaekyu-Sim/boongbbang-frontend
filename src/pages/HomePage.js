@@ -61,7 +61,7 @@ const HomePage = () => {
             <button onClick={navigateToTestpage2}>
                 To Page 2
             </button>
-            <NaverApiMap></NaverApiMap>
+            <NaverApiMap pos = {[lat, lng]}></NaverApiMap>
         </div>
     )
 }
