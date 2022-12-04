@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import NaverApiMap from "../utils/NaverAPIMap";
 
-const HomePage = () => {
+const MainPage = () => {
 
     const {lat, lng} = useSelector(
         
@@ -65,4 +65,4 @@ const HomePage = () => {
         </div>
     )
 }
-export default HomePage;
+export default MainPage;
