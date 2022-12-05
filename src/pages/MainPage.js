@@ -4,7 +4,7 @@ import { shallowEqual, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 /* Custom Library */
-import Header from "../components/Header";
+import TestMainHeader from "../components/TestMainHeader";
 import NaverApiMap from "../utils/NaverAPIMap";
 
 const MainPage = () => {
@@ -54,7 +54,7 @@ const MainPage = () => {
     /* Rendering */
     return(
         <div>
-            <Header></Header>
+            <TestMainHeader></TestMainHeader>
             <button onClick={navigateToTestpage1}>
                 To Page 1
             </button>

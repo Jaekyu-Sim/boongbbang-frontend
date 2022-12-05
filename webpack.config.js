@@ -41,10 +41,10 @@ module.exports = {
             {
                 test:/\.(jpg|png|gif)$/,
                 loader: 'file-loader',
-                options: {
-                    publicPath: './dist/',
-                    name: '[name].[ext]?[hash]'
-                }
+                // options: {
+                //     publicPath: './dist/',
+                //     name: '[name].[ext]?[hash]'
+                // }
             }
         ]
     },

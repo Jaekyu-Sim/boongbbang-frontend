@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Switch } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import MainPage  from "./pages/MainPage";
+import WelcomePage from "./pages/WelcomePage";
 import { useDispatch } from "react-redux";
 import { setCurrentPosition } from "./store/naverMap/action";
 
@@ -66,7 +67,7 @@ const App = () => {
                 </Routes>
             */}
             <Routes>
-                <Route path="/" element = {<MainPage></MainPage>}></Route>
+                <Route path="/" element = {<WelcomePage></WelcomePage>}></Route>
             </Routes>
         </>
     )

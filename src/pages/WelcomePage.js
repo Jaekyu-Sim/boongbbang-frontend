@@ -1,9 +1,10 @@
 import React, {useState} from "react";
-import Header from "../components/Header";
+import TestWelcomeHeader from "../components/TestWelcomeHeader";
 import { getAPI } from "../utils/Api";
 import axios from "axios";
+import boongbbang from "../styles/WelcomePage.css"
 
-const TestPage1 = () => {
+const WelcomePage = () => {
 
     const [val, setVal] = useState("test null");
 
@@ -17,11 +18,12 @@ const TestPage1 = () => {
     }
     return(
         <div>
-            <Header></Header>
-            <p> Test Page 1 으로 들어왔습니다. </p>
+            <TestWelcomeHeader></TestWelcomeHeader>
+            <p> TestMainHeader Page 으로 들어왔습니다. </p>
             <button onClick={buttonClicked}>test call</button>
-            {JSON.stringify(val)}
+            {/* {JSON.stringify(val)} */}
+            <div className="boongbbang"></div>
         </div>
     )
 }
-export default TestPage1;
+export default WelcomePage;
