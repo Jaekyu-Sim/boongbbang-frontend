@@ -68,6 +68,7 @@ const App = () => {
             */}
             <Routes>
                 <Route path="/" element = {<WelcomePage></WelcomePage>}></Route>
+                <Route path="/MainPage" element = {<MainPage></MainPage>}></Route>
             </Routes>
         </>
     )
