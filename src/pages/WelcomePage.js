@@ -47,9 +47,9 @@ const WelcomePage = () => {
 
     /* Rendering */
     return(
-        <div>
+        <div style={{height:"100vh"}}>
             <TestWelcomeHeader></TestWelcomeHeader>
-            <p> TestMainHeader Page 으로 들어왔습니다. </p>
+            <p style={{textAlign:"center"}}> TestMainHeader Page 으로 들어왔습니다. </p>
             
             {/* {JSON.stringify(val)} */}
 
@@ -57,8 +57,12 @@ const WelcomePage = () => {
                 <img className="boongbbang" src={boongbbangImg}></img>
             </div>
 
+            <div style={{height:"60vh"}}>
 
-            <button onClick={navigateToMainPage}>붕어빵 확인하러 가기</button>
+            </div>
+            <div style={{textAlign:"center"}} >
+                <button onClick={navigateToMainPage}>붕어빵 확인하러 가기</button>
+            </div>
         </div>
     )
 }

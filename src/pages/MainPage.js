@@ -1,16 +1,19 @@
 /* Define Library */
-import React from "react";
+import React, {useEffect} from "react";
 import { shallowEqual, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 /* Custom Library */
 import TestMainHeader from "../components/TestMainHeader";
 import NaverApiMap from "../utils/NaverAPIMap";
+import MainPageCss from "../styles/MainPage.css"
 
 const MainPage = () => {
 
+    /*****************************************************************************************
+     * Redux
+    ******************************************************************************************/
     const {lat, lng} = useSelector(
-        
         state => ({
             lat: state.currentPositionReducer.lat,
             lng: state.currentPositionReducer.lng
@@ -18,50 +21,66 @@ const MainPage = () => {
         shallowEqual
     )
 
-    console.log("🚀 ~ file: HomePage.js:13 ~ HomePage ~ lat, lng", lat, lng)
-
     
-    /* Options */
+    
+    /*****************************************************************************************
+     * Options
+    ******************************************************************************************/
     // ex.
     // const {Title, Text} = Typography;
+    
 
-    /* default 셋팅 */
+    
+
+    /***************************************************************************************** 
+     * default 셋팅 
+    ******************************************************************************************/
     // ex.
     // const defaultColumnDef = {
     //    
     //}
 
-    /* State 셋팅 */
 
-    /* Custom Function */
-
-    /* Transaction 셋팅 */
-
-    /* Trigger 셋팅 */
-
-    /* Effect 셋팅 */
+    /***************************************************************************************** 
+     * State 셋팅 
+    ******************************************************************************************/
     
     
-    const navigate = useNavigate();
-    const navigateToTestpage1 = () => {
-        navigate("/TestPage1")
-    }
-    const navigateToTestpage2 = () => {
-        navigate("/TestPage2")
-    }
+    /***************************************************************************************** 
+     * Custom Functio 셋팅 
+    ******************************************************************************************/
+
+    
+    /***************************************************************************************** 
+     * Transaction 셋팅 
+    ******************************************************************************************/
+
+
+    
+    /***************************************************************************************** 
+     * Trigger 셋팅 
+    ******************************************************************************************/
+    // navermaps.Event.addListener(navermaps, 'click', function(e){
+    //     console.log("event : ", e);
+    // })
+
+
+    
+    /***************************************************************************************** 
+     * Effect 셋팅 
+    ******************************************************************************************/
     
 
-    /* Rendering */
+    
+    /***************************************************************************************** 
+     * Rendering
+    ******************************************************************************************/
     return(
-        <div>
+        <div className={MainPageCss} style={{height:"100vh"}}>
             <TestMainHeader></TestMainHeader>
-            <button onClick={navigateToTestpage1}>
-                To Page 1
-            </button>
-            <button onClick={navigateToTestpage2}>
-                To Page 2
-            </button>
+            {/* <div id="map" style={{ minHeight: '400px' }} /> */}
             <NaverApiMap pos = {[lat, lng]}></NaverApiMap>
+            
         </div>
     )
 }

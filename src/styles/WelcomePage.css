@@ -24,7 +24,11 @@
 		transform: translateY(50px);
 	}
 }
-
+html, body{
+    background-color: bisque;
+    height:100%;
+    margin:0;
+}
 
 .boongbbang {
 	display: flex;
@@ -32,7 +36,7 @@
 	justify-content: center;
 	width: 200px;
 
-	border: 2px solid black;
+	/* border: 2px solid black; */
 	/* background-color: rgba(255, 255, 0, 0.7); */
     
 	animation: boongbbangX-ani 5s forwards infinite; /* 애니메이션 적용 */
